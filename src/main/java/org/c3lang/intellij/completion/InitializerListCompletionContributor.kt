@@ -9,12 +9,17 @@ import com.intellij.patterns.PlatformPatterns.psiElement
 import com.intellij.patterns.StandardPatterns.or
 import com.intellij.psi.util.parentOfType
 import com.intellij.util.ProcessingContext
-import com.intellij.util.text.nullize
 import org.c3lang.intellij.C3Icons
 import org.c3lang.intellij.index.StructService
-import org.c3lang.intellij.psi.*
+import org.c3lang.intellij.psi.C3AccessIdent
+import org.c3lang.intellij.psi.C3Arg
+import org.c3lang.intellij.psi.C3InitializerList
+import org.c3lang.intellij.psi.C3PathIdent
+import org.c3lang.intellij.psi.C3PathNameProvider
+import org.c3lang.intellij.psi.C3PsiElement
 
-object InitializerListCompletionContributor : CompletionProvider<CompletionParameters>() {
+object InitializerListCompletionContributor : CompletionProvider<CompletionParameters>()
+{
     private val log = Logger.getInstance(
         InitializerListCompletionContributor::class.java
     )
@@ -24,13 +29,15 @@ object InitializerListCompletionContributor : CompletionProvider<CompletionParam
     )
 
     override fun addCompletions(
-        parameters: CompletionParameters,
-        context: ProcessingContext,
-        result: CompletionResultSet
-    ) {
+            parameters: CompletionParameters,
+            context: ProcessingContext,
+            result: CompletionResultSet
+    )
+    {
         val originalPosition = parameters.originalPosition
 
-        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition)) {
+        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition))
+        {
             return;
         }
 

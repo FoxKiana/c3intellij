@@ -64,8 +64,10 @@ object CompletionUtil
         val document = parameters.editor.document
         val chars = document.charsSequence
 
-        for (i in symbol.indices) {
-            if (chars[offset - symbol.length + i] != symbol[i]) {
+        for (i in symbol.indices)
+        {
+            if (chars[offset - symbol.length + i] != symbol[i])
+            {
                 return false
             }
         }

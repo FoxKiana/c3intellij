@@ -1,6 +1,10 @@
 package org.c3lang.intellij.completion
 
-import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.completion.CompletionParameters
+import com.intellij.codeInsight.completion.CompletionProvider
+import com.intellij.codeInsight.completion.CompletionResultSet
+import com.intellij.codeInsight.completion.InsertHandler
+import com.intellij.codeInsight.completion.InsertionContext
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.openapi.command.WriteCommandAction
@@ -14,10 +18,16 @@ import com.intellij.util.ProcessingContext
 import org.c3lang.intellij.C3Icons
 import org.c3lang.intellij.index.NameIndex
 import org.c3lang.intellij.intention.AddImportQuickFix
-import org.c3lang.intellij.psi.*
+import org.c3lang.intellij.psi.C3FaultDefinition
+import org.c3lang.intellij.psi.C3ModuleDefinition
+import org.c3lang.intellij.psi.C3PathConst
+import org.c3lang.intellij.psi.C3PathConstExpr
+import org.c3lang.intellij.psi.C3PsiElement
+import org.c3lang.intellij.psi.FullyQualifiedName
 
 @Suppress("DuplicatedCode")
-object FaultCompletionContributor : CompletionProvider<CompletionParameters>() {
+object FaultCompletionContributor : CompletionProvider<CompletionParameters>()
+{
     private val log = Logger.getInstance(
         FaultCompletionContributor::class.java
     )
@@ -27,11 +37,13 @@ object FaultCompletionContributor : CompletionProvider<CompletionParameters>() {
     )
 
     override fun addCompletions(
-        parameters: CompletionParameters,
-        context: ProcessingContext,
-        result: CompletionResultSet
-    ) {
-        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition)) {
+            parameters: CompletionParameters,
+            context: ProcessingContext,
+            result: CompletionResultSet
+    )
+    {
+        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition))
+        {
             return;
         }
 
@@ -84,11 +96,13 @@ object FaultCompletionContributor : CompletionProvider<CompletionParameters>() {
 
     @Suppress("DuplicatedCode")
     private class FaultInsertHandler(
-        private val moduleDefinition: C3ModuleDefinition,
-        private val range: TextRange,
-    ) : InsertHandler<LookupElement> {
+            private val moduleDefinition: C3ModuleDefinition,
+            private val range: TextRange,
+    ) : InsertHandler<LookupElement>
+    {
 
-        override fun handleInsert(context: InsertionContext, item: LookupElement) {
+        override fun handleInsert(context: InsertionContext, item: LookupElement)
+        {
             val editor = context.editor
             val document = editor.document
             val element = item.psiElement as C3FaultDefinition

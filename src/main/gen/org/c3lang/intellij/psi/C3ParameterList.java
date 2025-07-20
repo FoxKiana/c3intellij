@@ -3,11 +3,9 @@ package org.c3lang.intellij.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
-import com.intellij.psi.PsiElement;
 
 public interface C3ParameterList extends C3ParameterListMixin {
 
   @NotNull
   List<C3ParamDecl> getParamDeclList();
-
 }

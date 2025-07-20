@@ -33,7 +33,7 @@ fn ::= doc_comment? KW_EXTERN? KW_FN type fq_name parameters attribute* (lambda?
     methods=[isExtern getLookupElement]
 }
 
-type ::= IDENTIFIER (LBRACKET INTEGER? RBRACKET)? FAULT?
+type ::= IDENTIFIER ASTERISK? (LBRACKET INTEGER? RBRACKET)? ASTERISK? FAULT?
 {
     methods=[getString]
 }
@@ -61,7 +61,7 @@ expr ::= term (operator term)*
 
 fn_body ::= LBRACE fn_statement* RBRACE
 
-fn_statement ::= LINE_COMMENT | return | (call SEMICOLON) | assignment | comp_if
+fn_statement ::= LINE_COMMENT | return | assignment | (call SEMICOLON) | comp_if
 
 return ::= KW_RETURN expr? SEMICOLON
 {
@@ -122,7 +122,7 @@ field ::= IDENTIFIER (PERIOD IDENTIFIER)*
     pin=1
 }
 
-assignment ::= type IDENTIFIER (EQUALS expr)? SEMICOLON
+assignment ::= (call | type) IDENTIFIER (EQUALS expr)? SEMICOLON
 {
     pin=3
     methods=[getName]
@@ -152,7 +152,7 @@ ensure_contract ::= KW_DOC_ENSURE expr (COMMA expr)* description?
 
 pure_contract ::= KW_DOC_PURE
 
-term ::= cast? (INTEGER | DOUBLE | FLOAT | STRING | CHAR | init | call | field | attribute | (LPAREN expr RPAREN))
+term ::= cast? (INTEGER | DOUBLE | FLOAT | STRING | CHAR | AMPERSAND? init | AMPERSAND? call | AMPERSAND? field | attribute | (LPAREN expr RPAREN))
 
 operator ::= LTE | GTE | LT | GT | IS_EQUAL | NOT_EQUAL
 

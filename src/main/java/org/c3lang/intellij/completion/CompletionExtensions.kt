@@ -4,14 +4,18 @@ import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiWhiteSpace
 import com.intellij.psi.codeStyle.MinusculeMatcher
 import com.intellij.psi.codeStyle.NameUtil
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.util.parentOfType
-import com.intellij.psi.util.siblings
-import com.intellij.refactoring.suggested.startOffset
-import org.c3lang.intellij.psi.*
+import org.c3lang.intellij.psi.C3BinaryExpr
+import org.c3lang.intellij.psi.C3CallExpr
+import org.c3lang.intellij.psi.C3CallExprTail
+import org.c3lang.intellij.psi.C3CompoundInitExpr
+import org.c3lang.intellij.psi.C3FullyQualifiedTypeNameProvider
+import org.c3lang.intellij.psi.C3ModuleDefinition
+import org.c3lang.intellij.psi.C3PathIdent
+import org.c3lang.intellij.psi.FullyQualifiedName
 import kotlin.math.max
 
 private val log = Logger.getInstance("org.c3lang.intellij.completion.CompletionExtensionsKt")
@@ -87,11 +91,13 @@ private val CompletionParameters.lookupTarget: PsiElement
         error("position $position or originalPosition $originalPosition not (yet) supported.")
     }*/
 
-inline fun <reified T : PsiElement> CompletionParameters.siblingOf(): T? {
+inline fun <reified T : PsiElement> CompletionParameters.siblingOf(): T?
+{
     return (originalPosition?.parentOfType<T>() ?: position.parentOfType<T>())
 }
 
-fun CompletionParameters.getLookupString(lookupTarget: PsiElement): String {
+fun CompletionParameters.getLookupString(lookupTarget: PsiElement): String
+{
     return editor.document.getText(
         TextRange.create(
             lookupTarget.textRange.startOffset,
@@ -100,9 +106,11 @@ fun CompletionParameters.getLookupString(lookupTarget: PsiElement): String {
     )
 }
 
-fun getRootType(lookupTarget: PsiElement): FullyQualifiedName? {
+fun getRootType(lookupTarget: PsiElement): FullyQualifiedName?
+{
     val compoundInitExpr = lookupTarget.parentOfType<C3CompoundInitExpr>()
-    if (compoundInitExpr != null) {
+    if (compoundInitExpr != null)
+    {
         return FullyQualifiedName.from(compoundInitExpr.type)
     }
 
@@ -132,21 +140,23 @@ fun getRootType(lookupTarget: PsiElement): FullyQualifiedName? {
     return types.firstOrNull()
 }
 
-fun getMatcher(lookupString: String): MinusculeMatcher {
+fun getMatcher(lookupString: String): MinusculeMatcher
+{
     return NameUtil.buildMatcher(
         "*$lookupString*",
         NameUtil.MatchingCaseSensitivity.NONE
     )
 }
 
-fun MinusculeMatcher.matchingDegreeOrZero(name: String): Int {
+fun MinusculeMatcher.matchingDegreeOrZero(name: String): Int
+{
     return max(matchingDegree(name), 0)
 }
 
 data class Completion(
-    val lookupTarget: PsiElement,
-    val matcher: MinusculeMatcher,
-    val lookupString: String,
+        val lookupTarget: PsiElement,
+        val matcher: MinusculeMatcher,
+        val lookupString: String,
 )
 
 const val DUMMY_IDENTIFIER: String = "dummy;"

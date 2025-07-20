@@ -29,14 +29,20 @@ public class C3AssignmentImpl extends ASTWrapperPsiElement implements C3Assignme
 
   @Override
   @Nullable
+  public C3Call getCall() {
+    return findChildByClass(C3Call.class);
+  }
+
+  @Override
+  @Nullable
   public C3Expr getExpr() {
     return findChildByClass(C3Expr.class);
   }
 
   @Override
-  @NotNull
+  @Nullable
   public C3Type getType() {
-    return findNotNullChildByClass(C3Type.class);
+    return findChildByClass(C3Type.class);
   }
 
   @Override

@@ -1,8 +1,8 @@
 // This is a generated file. Not intended for manual editing.
 package org.c3lang.intellij.psi;
 
-import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
+import org.jetbrains.annotations.*;
 
 public class C3Visitor extends PsiElementVisitor {
 
@@ -863,5 +863,4 @@ public class C3Visitor extends PsiElementVisitor {
   public void visitPsiElement(@NotNull C3PsiElement o) {
     visitElement(o);
   }
-
 }

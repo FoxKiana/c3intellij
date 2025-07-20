@@ -6,7 +6,7 @@ import org.c3lang.intellij.psi.C3PsiElement;
 import org.jetbrains.annotations.NotNull;
 
 public class C3PsiElementImpl extends ASTWrapperPsiElement implements C3PsiElement {
-    public C3PsiElementImpl(@NotNull ASTNode node) {
-        super(node);
-    }
+  public C3PsiElementImpl(@NotNull ASTNode node) {
+    super(node);
+  }
 }

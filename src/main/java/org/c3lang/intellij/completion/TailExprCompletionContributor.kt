@@ -15,7 +15,8 @@ import org.c3lang.intellij.psi.C3CallExprTail
 import org.c3lang.intellij.psi.C3ExprStmt
 import org.c3lang.intellij.psi.C3Types
 
-object TailExprCompletionContributor : CompletionProvider<CompletionParameters>() {
+object TailExprCompletionContributor : CompletionProvider<CompletionParameters>()
+{
 
     private val pattern = or(
         // foo.bar.baz<caret>
@@ -25,11 +26,13 @@ object TailExprCompletionContributor : CompletionProvider<CompletionParameters>(
     )
 
     override fun addCompletions(
-        parameters: CompletionParameters,
-        context: ProcessingContext,
-        result: CompletionResultSet
-    ) {
-        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition)) {
+            parameters: CompletionParameters,
+            context: ProcessingContext,
+            result: CompletionResultSet
+    )
+    {
+        if (!pattern.accepts(parameters.position) && !pattern.accepts(parameters.originalPosition))
+        {
             return;
         }
         val lookupTarget = parameters.siblingOf<C3ExprStmt>()

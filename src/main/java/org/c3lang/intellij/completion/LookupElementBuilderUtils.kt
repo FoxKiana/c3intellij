@@ -6,13 +6,16 @@ import org.c3lang.intellij.psi.C3CallablePsiElement
 import org.c3lang.intellij.psi.C3FuncDef
 import org.c3lang.intellij.psi.C3MacroDefinition
 
-object LookupElementBuilderUtils {
+object LookupElementBuilderUtils
+{
 
-    fun createFunctionDef(element: C3CallablePsiElement): LookupElementBuilder {
-        val icon = when (element) {
-            is C3FuncDef -> C3Icons.Nodes.FUNCTION
+    fun createFunctionDef(element: C3CallablePsiElement): LookupElementBuilder
+    {
+        val icon = when (element)
+        {
+            is C3FuncDef         -> C3Icons.Nodes.FUNCTION
             is C3MacroDefinition -> C3Icons.Nodes.MACRO
-            else -> null
+            else                 -> null
         }
 
         val parameterList = element.parameterTypes.joinToString(",") {

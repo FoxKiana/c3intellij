@@ -6,7 +6,6 @@ import com.intellij.codeInsight.completion.CompletionResultSet
 import com.intellij.patterns.PlatformPatterns.not
 import com.intellij.patterns.PlatformPatterns.psiElement
 import com.intellij.patterns.StandardPatterns.and
-import com.intellij.psi.PsiElement
 import com.intellij.util.ProcessingContext
 import org.c3lang.intellij.C3ParserDefinition
 

@@ -1,15 +1,16 @@
 // This is a generated file. Not intended for manual editing.
 package org.c3lang.intellij.parser;
 
-import com.intellij.lang.PsiBuilder;
-import com.intellij.lang.PsiBuilder.Marker;
 import static org.c3lang.intellij.psi.C3Types.*;
 import static org.c3lang.intellij.psi.impl.C3ParserUtil.*;
-import com.intellij.psi.tree.IElementType;
+
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.tree.TokenSet;
-import com.intellij.lang.PsiParser;
 import com.intellij.lang.LightPsiParser;
+import com.intellij.lang.PsiBuilder;
+import com.intellij.lang.PsiBuilder.Marker;
+import com.intellij.lang.PsiParser;
+import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.tree.TokenSet;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class C3Parser implements PsiParser, LightPsiParser {
@@ -35,17 +36,43 @@ public class C3Parser implements PsiParser, LightPsiParser {
     return translation_unit(b, l + 1);
   }
 
-  public static final TokenSet[] EXTENDS_SETS_ = new TokenSet[] {
-    create_token_set_(ASM_EXPR, ASSIGN_TYPE_EXPR, ATTRIBUTE_OPERATOR_EXPR, BINARY_EXPR,
-      BUILTIN_CONST_EXPR, BUILTIN_EXPR, BYTES_EXPR, CALL_EXPR,
-      COMPOUND_INIT_EXPR, CONSTANT_EXPR, CT_ANALYZE_EXPR, CT_ARG_EXPR,
-      CT_CALL_EXPR, CT_DEFINED_CHECK_EXPR, CT_DEFINED_EXPR, CT_FEATURE_EXPR,
-      DECL_OR_EXPR, EXPR, GROUPED_EXPR, INIT_LIST_EXPR,
-      KEYWORD_EXPR, LAMBDA_DECL_EXPR, LAMBDA_DECL_SHORT_EXPR, LITERAL_EXPR,
-      LOCAL_IDENT_EXPR, OPTIONAL_EXPR, PATH_AT_IDENT_EXPR, PATH_CONST_EXPR,
-      PATH_IDENT_EXPR, STRING_EXPR, TERNARY_EXPR, TYPE_ACCESS_EXPR,
-      UNARY_EXPR),
-  };
+  public static final TokenSet[] EXTENDS_SETS_ =
+      new TokenSet[] {
+        create_token_set_(
+            ASM_EXPR,
+            ASSIGN_TYPE_EXPR,
+            ATTRIBUTE_OPERATOR_EXPR,
+            BINARY_EXPR,
+            BUILTIN_CONST_EXPR,
+            BUILTIN_EXPR,
+            BYTES_EXPR,
+            CALL_EXPR,
+            COMPOUND_INIT_EXPR,
+            CONSTANT_EXPR,
+            CT_ANALYZE_EXPR,
+            CT_ARG_EXPR,
+            CT_CALL_EXPR,
+            CT_DEFINED_CHECK_EXPR,
+            CT_DEFINED_EXPR,
+            CT_FEATURE_EXPR,
+            DECL_OR_EXPR,
+            EXPR,
+            GROUPED_EXPR,
+            INIT_LIST_EXPR,
+            KEYWORD_EXPR,
+            LAMBDA_DECL_EXPR,
+            LAMBDA_DECL_SHORT_EXPR,
+            LITERAL_EXPR,
+            LOCAL_IDENT_EXPR,
+            OPTIONAL_EXPR,
+            PATH_AT_IDENT_EXPR,
+            PATH_CONST_EXPR,
+            PATH_IDENT_EXPR,
+            STRING_EXPR,
+            TERNARY_EXPR,
+            TYPE_ACCESS_EXPR,
+            UNARY_EXPR),
+      };
 
   /* ********************************************************** */
   // IDENT | AT_IDENT | HASH_IDENT | KW_CT_EVAL '(' expr ')' | KW_TYPEID
@@ -181,7 +208,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (named_ident COLON (expr | type)) | param_path (EQ (expr | type))? | expr | type | KW_CT_VASPLAT (LBT range_exp RBT)? | ELLIPSIS expr
+  // (named_ident COLON (expr | type)) | param_path (EQ (expr | type))? | expr | type |
+  // KW_CT_VASPLAT (LBT range_exp RBT)? | ELLIPSIS expr
   public static boolean arg(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "arg")) return false;
     boolean r;
@@ -921,7 +949,9 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // BIT_AND_ASSIGN | BIT_OR_ASSIGN | BIT_XOR_ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | SHL_ASSIGN | SHR_ASSIGN | &RP | MINUS &RP | DIV | STAR &RP | MOD | EQ_OP | NE_OP | BIT_XOR | BIT_NOT | BIT_OR | AMP &RP | SHL | SHR | LBT RBT EQ | AMP? LBT RBT
+  // BIT_AND_ASSIGN | BIT_OR_ASSIGN | BIT_XOR_ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | MULT_ASSIGN |
+  // DIV_ASSIGN | MOD_ASSIGN | SHL_ASSIGN | SHR_ASSIGN | &RP | MINUS &RP | DIV | STAR &RP | MOD |
+  // EQ_OP | NE_OP | BIT_XOR | BIT_NOT | BIT_OR | AMP &RP | SHL | SHR | LBT RBT EQ | AMP? LBT RBT
   public static boolean attribute_operator_expr(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_operator_expr")) return false;
     boolean r;
@@ -1977,7 +2007,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   public static boolean ct_defined_check_expr_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ct_defined_check_expr_list")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, CT_DEFINED_CHECK_EXPR_LIST, "<ct defined check expr list>");
+    Marker m =
+        enter_section_(b, l, _NONE_, CT_DEFINED_CHECK_EXPR_LIST, "<ct defined check expr list>");
     r = ct_defined_check_expr(b, l + 1);
     r = r && ct_defined_check_expr_list_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -3301,7 +3332,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   public static boolean global_single_declaration(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "global_single_declaration")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, GLOBAL_SINGLE_DECLARATION, "<global single declaration>");
+    Marker m =
+        enter_section_(b, l, _NONE_, GLOBAL_SINGLE_DECLARATION, "<global single declaration>");
     r = global_single_declaration_0(b, l + 1);
     r = r && global_single_declaration_1(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -3577,7 +3609,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_CHAR | KW_ICHAR | KW_SHORT | KW_USHORT | KW_INT | KW_UINT | KW_LONG | KW_ULONG | KW_INT128 | KW_UINT128
+  // KW_CHAR | KW_ICHAR | KW_SHORT | KW_USHORT | KW_INT | KW_UINT | KW_LONG | KW_ULONG | KW_INT128 |
+  // KW_UINT128
   public static boolean integer_type(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "integer_type")) return false;
     boolean r;
@@ -4577,7 +4610,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // KW_INLINE? type (ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT) attributes? | attributes?)
+  // KW_INLINE? type (ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT)
+  // attributes? | attributes?)
   //     | ELLIPSIS | HASH_IDENT attributes?| AMP IDENT attributes?  | IDENT ELLIPSIS? attributes?
   //     | CT_IDENT | CT_IDENT ELLIPSIS
   public static boolean parameter(PsiBuilder b, int l) {
@@ -4595,7 +4629,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // KW_INLINE? type (ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT) attributes? | attributes?)
+  // KW_INLINE? type (ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT)
+  // attributes? | attributes?)
   private static boolean parameter_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "parameter_0")) return false;
     boolean r;
@@ -4614,7 +4649,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT) attributes? | attributes?
+  // ELLIPSIS? IDENT attributes? | ELLIPSIS? CT_IDENT | (HASH_IDENT | AMP IDENT) attributes? |
+  // attributes?
   private static boolean parameter_0_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "parameter_0_2")) return false;
     boolean r;
@@ -5192,7 +5228,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   public static boolean struct_member_declaration(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "struct_member_declaration")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, STRUCT_MEMBER_DECLARATION, "<struct member declaration>");
+    Marker m =
+        enter_section_(b, l, _NONE_, STRUCT_MEMBER_DECLARATION, "<struct member declaration>");
     r = struct_member_declaration_1(b, l + 1);
     if (!r) r = struct_member_declaration_2(b, l + 1);
     if (!r) r = struct_member_declaration_3(b, l + 1);
@@ -5699,7 +5736,8 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // STAR | LBT PLUS RBT | LBT (STAR | QUESTION | DIV | UNDERSCORE | constant_expr)? RBT | LVEC (STAR | constant_expr) RVEC
+  // STAR | LBT PLUS RBT | LBT (STAR | QUESTION | DIV | UNDERSCORE | constant_expr)? RBT | LVEC
+  // (STAR | constant_expr) RVEC
   public static boolean type_suffix(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "type_suffix")) return false;
     boolean r;
@@ -5993,9 +6031,11 @@ public class C3Parser implements PsiParser, LightPsiParser {
   // 11: POSTFIX(call_expr)
   // 12: ATOM(literal_expr) ATOM(path_ident_expr) ATOM(string_expr) ATOM(bytes_expr)
   //    ATOM(keyword_expr) ATOM(builtin_const_expr) ATOM(builtin_expr) ATOM(path_const_expr)
-  //    ATOM(path_at_ident_expr) ATOM(compound_init_expr) PREFIX(grouped_expr) ATOM(local_ident_expr)
+  //    ATOM(path_at_ident_expr) ATOM(compound_init_expr) PREFIX(grouped_expr)
+  // ATOM(local_ident_expr)
   //    ATOM(type_access_expr) ATOM(ct_call_expr) ATOM(ct_feature_expr) PREFIX(ct_arg_expr)
-  //    ATOM(ct_analyze_expr) ATOM(ct_defined_expr) ATOM(lambda_decl_expr) PREFIX(lambda_decl_short_expr)
+  //    ATOM(ct_analyze_expr) ATOM(ct_defined_expr) ATOM(lambda_decl_expr)
+  // PREFIX(lambda_decl_short_expr)
   //    ATOM(init_list_expr)
   public static boolean expr(PsiBuilder b, int l, int g) {
     if (!recursion_guard_(b, l, "expr")) return false;
@@ -6039,57 +6079,44 @@ public class C3Parser implements PsiParser, LightPsiParser {
       if (g < 0 && consumeTokenSmart(b, ELVIS)) {
         r = expr(b, l, -1);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 0 && consumeTokenSmart(b, OPTELSE)) {
+      } else if (g < 0 && consumeTokenSmart(b, OPTELSE)) {
         r = expr(b, l, -1);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 0 && ternary_expr_0(b, l + 1)) {
+      } else if (g < 0 && ternary_expr_0(b, l + 1)) {
         r = report_error_(b, expr(b, l, -1));
         r = ternary_expr_1(b, l + 1) && r;
         exit_section_(b, l, m, TERNARY_EXPR, r, true, null);
-      }
-      else if (g < 0 && optional_expr_0(b, l + 1)) {
+      } else if (g < 0 && optional_expr_0(b, l + 1)) {
         r = true;
         exit_section_(b, l, m, OPTIONAL_EXPR, r, true, null);
-      }
-      else if (g < 2 && assign_bin_op(b, l + 1)) {
+      } else if (g < 2 && assign_bin_op(b, l + 1)) {
         r = expr(b, l, 1);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 3 && or_bin_expr_0(b, l + 1)) {
+      } else if (g < 3 && or_bin_expr_0(b, l + 1)) {
         r = expr(b, l, 3);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 4 && and_bin_expr_0(b, l + 1)) {
+      } else if (g < 4 && and_bin_expr_0(b, l + 1)) {
         r = expr(b, l, 4);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 5 && rel_bin_op(b, l + 1)) {
+      } else if (g < 5 && rel_bin_op(b, l + 1)) {
         r = expr(b, l, 5);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 6 && add_bin_op(b, l + 1)) {
+      } else if (g < 6 && add_bin_op(b, l + 1)) {
         r = expr(b, l, 6);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 7 && bit_bin_op(b, l + 1)) {
+      } else if (g < 7 && bit_bin_op(b, l + 1)) {
         r = expr(b, l, 7);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 8 && shift_bin_op(b, l + 1)) {
+      } else if (g < 8 && shift_bin_op(b, l + 1)) {
         r = expr(b, l, 8);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 9 && mult_bin_op(b, l + 1)) {
+      } else if (g < 9 && mult_bin_op(b, l + 1)) {
         r = expr(b, l, 9);
         exit_section_(b, l, m, BINARY_EXPR, r, true, null);
-      }
-      else if (g < 11 && call_expr_tail(b, l + 1)) {
+      } else if (g < 11 && call_expr_tail(b, l + 1)) {
         r = true;
         exit_section_(b, l, m, CALL_EXPR, r, true, null);
-      }
-      else {
+      } else {
         exit_section_(b, l, m, null, false, false, null);
         break;
       }
@@ -6540,5 +6567,4 @@ public class C3Parser implements PsiParser, LightPsiParser {
     exit_section_(b, m, INIT_LIST_EXPR, r);
     return r;
   }
-
 }

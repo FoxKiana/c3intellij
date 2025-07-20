@@ -82,6 +82,7 @@ import static org.c3lang.intellij.rewrite.psi.C3Types.*;
 ":"  { return COLON;          }
 "?"  { return FAULT;          }
 "!"  { return BANG;           }
+"*"  { return ASTERISK;       }
 
 @[a-z]+                { return ATTRIBUTE_NAME; }
 [$#a-zA-Z][a-zA-Z_\d]* { return IDENTIFIER;     }

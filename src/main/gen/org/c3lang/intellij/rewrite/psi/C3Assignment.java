@@ -8,9 +8,12 @@ import com.intellij.psi.PsiElement;
 public interface C3Assignment extends PsiElement {
 
   @Nullable
+  C3Call getCall();
+
+  @Nullable
   C3Expr getExpr();
 
-  @NotNull
+  @Nullable
   C3Type getType();
 
   String getName();

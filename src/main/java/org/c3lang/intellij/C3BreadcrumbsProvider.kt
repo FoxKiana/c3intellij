@@ -4,12 +4,28 @@ import com.intellij.lang.ASTNode
 import com.intellij.lang.Language
 import com.intellij.psi.PsiElement
 import com.intellij.ui.breadcrumbs.BreadcrumbsProvider
-import org.c3lang.intellij.psi.*
+import org.c3lang.intellij.psi.C3AliasDecl
+import org.c3lang.intellij.psi.C3AliasTypeDecl
+import org.c3lang.intellij.psi.C3AttrdefDecl
+import org.c3lang.intellij.psi.C3BitstructDeclaration
+import org.c3lang.intellij.psi.C3BitstructDef
+import org.c3lang.intellij.psi.C3BitstructSimpleDef
+import org.c3lang.intellij.psi.C3EnumDeclaration
+import org.c3lang.intellij.psi.C3FuncDefinition
+import org.c3lang.intellij.psi.C3IdentifierList
+import org.c3lang.intellij.psi.C3InterfaceDefinition
+import org.c3lang.intellij.psi.C3MacroDefinition
+import org.c3lang.intellij.psi.C3StructDeclaration
+import org.c3lang.intellij.psi.C3StructMemberDeclaration
+import org.c3lang.intellij.psi.C3TypedefDecl
+import org.c3lang.intellij.psi.C3Types
 
-class C3BreadcrumbsProvider : BreadcrumbsProvider {
+class C3BreadcrumbsProvider : BreadcrumbsProvider
+{
     override fun getLanguages(): Array<out Language> = arrayOf(C3Language.INSTANCE)
 
-    override fun acceptElement(element: PsiElement): Boolean {
+    override fun acceptElement(element: PsiElement): Boolean
+    {
         return element is C3StructDeclaration
                 || element is C3BitstructDeclaration
                 || element is C3EnumDeclaration
@@ -23,29 +39,34 @@ class C3BreadcrumbsProvider : BreadcrumbsProvider {
                 || element is C3AliasDecl
     }
 
-    override fun getElementInfo(element: PsiElement): String {
-        val text = when (element) {
-            is C3StructDeclaration -> element.getTypeName().text
-            is C3EnumDeclaration -> element.getTypeName().text
-            is C3MacroDefinition -> element.getMacroHeader().getMacroName().text
-            is C3TypedefDecl -> element.getTypeName().text
-            is C3AttrdefDecl -> element.attributeUserName.text
-            is C3AliasTypeDecl -> element.typeName.text
-            is C3InterfaceDefinition -> element.getTypeName().text
-            is C3FuncDefinition -> element.getFuncDef().getFuncHeader().getFuncName().text
-            is C3BitstructDeclaration -> element.getTypeName().text
-            is C3StructMemberDeclaration -> {
+    override fun getElementInfo(element: PsiElement): String
+    {
+        val text = when (element)
+        {
+            is C3StructDeclaration                     -> element.getTypeName().text
+            is C3EnumDeclaration                       -> element.getTypeName().text
+            is C3MacroDefinition                       -> element.getMacroHeader().getMacroName().text
+            is C3TypedefDecl                           -> element.getTypeName().text
+            is C3AttrdefDecl                           -> element.attributeUserName.text
+            is C3AliasTypeDecl                         -> element.typeName.text
+            is C3InterfaceDefinition                   -> element.getTypeName().text
+            is C3FuncDefinition                        -> element.getFuncDef().getFuncHeader().getFuncName().text
+            is C3BitstructDeclaration                  -> element.getTypeName().text
+            is C3StructMemberDeclaration               ->
+            {
                 val list: C3IdentifierList? = element.getIdentifierList()
                 if (list == null) "anonymous"
                 list?.text
             }
 
-            is C3BitstructDef, is C3BitstructSimpleDef -> {
+            is C3BitstructDef, is C3BitstructSimpleDef ->
+            {
                 val element: ASTNode? = element.node.findChildByType(C3Types.IDENT)
                 if (element == null) "anonymous"
                 element?.text
             }
-            else -> ""
+
+            else                                       -> ""
         }
 
         return text ?: ""

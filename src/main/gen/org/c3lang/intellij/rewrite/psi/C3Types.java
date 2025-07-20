@@ -59,6 +59,7 @@ public interface C3Types {
 
   IElementType AMPERSAND = new C3TokenType("AMPERSAND");
   IElementType ARROW = new C3TokenType("ARROW");
+  IElementType ASTERISK = new C3TokenType("ASTERISK");
   IElementType ATTRIBUTE_NAME = new C3TokenType("ATTRIBUTE_NAME");
   IElementType BANG = new C3TokenType("BANG");
   IElementType CHAR = new C3TokenType("CHAR");

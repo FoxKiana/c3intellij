@@ -1,14 +1,12 @@
 // This is a generated file. Not intended for manual editing.
 package org.c3lang.intellij.psi.impl;
 
-import java.util.List;
-import org.jetbrains.annotations.*;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.util.PsiTreeUtil;
 import static org.c3lang.intellij.psi.C3Types.*;
+
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElementVisitor;
 import org.c3lang.intellij.psi.*;
+import org.jetbrains.annotations.*;
 
 public class C3CtDefinedCheckExprImpl extends C3ExprImpl implements C3CtDefinedCheckExpr {
 
@@ -23,7 +21,7 @@ public class C3CtDefinedCheckExprImpl extends C3ExprImpl implements C3CtDefinedC
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof C3Visitor) accept((C3Visitor)visitor);
+    if (visitor instanceof C3Visitor) accept((C3Visitor) visitor);
     else super.accept(visitor);
   }
 
@@ -32,5 +30,4 @@ public class C3CtDefinedCheckExprImpl extends C3ExprImpl implements C3CtDefinedC
   public C3Type getType() {
     return findChildByClass(C3Type.class);
   }
-
 }

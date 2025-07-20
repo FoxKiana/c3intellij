@@ -1,17 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package org.c3lang.intellij.psi.impl;
 
-import java.util.List;
-import org.jetbrains.annotations.*;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.util.PsiTreeUtil;
 import static org.c3lang.intellij.psi.C3Types.*;
-import org.c3lang.intellij.psi.*;
-import org.c3lang.intellij.stubs.C3MacroDefinitionStub;
+
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.stubs.IStubElementType;
 import com.intellij.psi.tree.IElementType;
+import org.c3lang.intellij.psi.*;
+import org.c3lang.intellij.stubs.C3MacroDefinitionStub;
+import org.jetbrains.annotations.*;
 
 public class C3MacroDefinitionImpl extends C3MacroDefinitionMixinImpl implements C3MacroDefinition {
 
@@ -19,11 +17,13 @@ public class C3MacroDefinitionImpl extends C3MacroDefinitionMixinImpl implements
     super(node);
   }
 
-  public C3MacroDefinitionImpl(@NotNull C3MacroDefinitionStub stub, @NotNull IStubElementType<?, ?> type) {
+  public C3MacroDefinitionImpl(
+      @NotNull C3MacroDefinitionStub stub, @NotNull IStubElementType<?, ?> type) {
     super(stub, type);
   }
 
-  public C3MacroDefinitionImpl(@NotNull C3MacroDefinitionStub stub, @Nullable IElementType type, @Nullable ASTNode node) {
+  public C3MacroDefinitionImpl(
+      @NotNull C3MacroDefinitionStub stub, @Nullable IElementType type, @Nullable ASTNode node) {
     super(stub, type, node);
   }
 
@@ -33,7 +33,7 @@ public class C3MacroDefinitionImpl extends C3MacroDefinitionMixinImpl implements
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof C3Visitor) accept((C3Visitor)visitor);
+    if (visitor instanceof C3Visitor) accept((C3Visitor) visitor);
     else super.accept(visitor);
   }
 
@@ -60,5 +60,4 @@ public class C3MacroDefinitionImpl extends C3MacroDefinitionMixinImpl implements
   public C3MacroParams getMacroParams() {
     return findNotNullChildByClass(C3MacroParams.class);
   }
-
 }

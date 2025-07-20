@@ -3,7 +3,6 @@ package org.c3lang.intellij.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
-import com.intellij.psi.PsiElement;
 
 public interface C3ModuleSection extends C3ModuleDefinition {
 
@@ -12,5 +11,4 @@ public interface C3ModuleSection extends C3ModuleDefinition {
 
   @NotNull
   List<C3TopLevel> getTopLevelList();
-
 }

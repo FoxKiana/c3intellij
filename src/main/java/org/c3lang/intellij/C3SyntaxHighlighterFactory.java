@@ -12,11 +12,10 @@ import org.jetbrains.annotations.Nullable;
  *
  * @author Christoffer Lerno
  */
-public class C3SyntaxHighlighterFactory extends SyntaxHighlighterFactory
-{
-    @Override
-    public @NotNull SyntaxHighlighter getSyntaxHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile)
-    {
-        return new C3SyntaxHighlighter();
-    }
+public class C3SyntaxHighlighterFactory extends SyntaxHighlighterFactory {
+  @Override
+  public @NotNull SyntaxHighlighter getSyntaxHighlighter(
+      @Nullable Project project, @Nullable VirtualFile virtualFile) {
+    return new C3SyntaxHighlighter();
+  }
 }

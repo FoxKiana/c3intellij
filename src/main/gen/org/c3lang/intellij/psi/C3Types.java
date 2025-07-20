@@ -1,9 +1,9 @@
 // This is a generated file. Not intended for manual editing.
 package org.c3lang.intellij.psi;
 
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.tree.IElementType;
 import org.c3lang.intellij.psi.impl.*;
 
 public interface C3Types {
@@ -56,7 +56,8 @@ public interface C3Types {
   IElementType COND = new C3ElementType("COND");
   IElementType COND_REPEAT = new C3ElementType("COND_REPEAT");
   IElementType CONSTANT_EXPR = new C3ElementType("CONSTANT_EXPR");
-  IElementType CONST_DECLARATION_STMT = C3StubElementTypeFactory.stubFactory("CONST_DECLARATION_STMT");
+  IElementType CONST_DECLARATION_STMT =
+      C3StubElementTypeFactory.stubFactory("CONST_DECLARATION_STMT");
   IElementType CONTINUE_STMT = new C3ElementType("CONTINUE_STMT");
   IElementType CT_ANALYZE = new C3ElementType("CT_ANALYZE");
   IElementType CT_ANALYZE_EXPR = new C3ElementType("CT_ANALYZE_EXPR");
@@ -178,7 +179,8 @@ public interface C3Types {
   IElementType STRING_EXPR = new C3ElementType("STRING_EXPR");
   IElementType STRUCT_BODY = new C3ElementType("STRUCT_BODY");
   IElementType STRUCT_DECLARATION = C3StubElementTypeFactory.stubFactory("STRUCT_DECLARATION");
-  IElementType STRUCT_MEMBER_DECLARATION = C3StubElementTypeFactory.stubFactory("STRUCT_MEMBER_DECLARATION");
+  IElementType STRUCT_MEMBER_DECLARATION =
+      C3StubElementTypeFactory.stubFactory("STRUCT_MEMBER_DECLARATION");
   IElementType SWITCH_BODY = new C3ElementType("SWITCH_BODY");
   IElementType SWITCH_STMT = new C3ElementType("SWITCH_STMT");
   IElementType TERNARY_EXPR = new C3ElementType("TERNARY_EXPR");
@@ -379,566 +381,379 @@ public interface C3Types {
       IElementType type = node.getElementType();
       if (type == ACCESS_IDENT) {
         return new C3AccessIdentImpl(node);
-      }
-      else if (type == ALIAS_DECL) {
+      } else if (type == ALIAS_DECL) {
         return new C3AliasDeclImpl(node);
-      }
-      else if (type == ALIAS_DECLARATION_SOURCE) {
+      } else if (type == ALIAS_DECLARATION_SOURCE) {
         return new C3AliasDeclarationSourceImpl(node);
-      }
-      else if (type == ALIAS_NAME) {
+      } else if (type == ALIAS_NAME) {
         return new C3AliasNameImpl(node);
-      }
-      else if (type == ALIAS_TYPE_DECL) {
+      } else if (type == ALIAS_TYPE_DECL) {
         return new C3AliasTypeDeclImpl(node);
-      }
-      else if (type == ARG) {
+      } else if (type == ARG) {
         return new C3ArgImpl(node);
-      }
-      else if (type == ARG_LIST) {
+      } else if (type == ARG_LIST) {
         return new C3ArgListImpl(node);
-      }
-      else if (type == ASM_ADDR) {
+      } else if (type == ASM_ADDR) {
         return new C3AsmAddrImpl(node);
-      }
-      else if (type == ASM_ADDR_TRAILING) {
+      } else if (type == ASM_ADDR_TRAILING) {
         return new C3AsmAddrTrailingImpl(node);
-      }
-      else if (type == ASM_BLOCK_STMT) {
+      } else if (type == ASM_BLOCK_STMT) {
         return new C3AsmBlockStmtImpl(node);
-      }
-      else if (type == ASM_DECLARATION) {
+      } else if (type == ASM_DECLARATION) {
         return new C3AsmDeclarationImpl(node);
-      }
-      else if (type == ASM_EXPR) {
+      } else if (type == ASM_EXPR) {
         return new C3AsmExprImpl(node);
-      }
-      else if (type == ASM_EXPRS) {
+      } else if (type == ASM_EXPRS) {
         return new C3AsmExprsImpl(node);
-      }
-      else if (type == ASM_INSTR) {
+      } else if (type == ASM_INSTR) {
         return new C3AsmInstrImpl(node);
-      }
-      else if (type == ASM_STMT) {
+      } else if (type == ASM_STMT) {
         return new C3AsmStmtImpl(node);
-      }
-      else if (type == ASSERT_STMT) {
+      } else if (type == ASSERT_STMT) {
         return new C3AssertStmtImpl(node);
-      }
-      else if (type == ASSIGN_TYPE_EXPR) {
+      } else if (type == ASSIGN_TYPE_EXPR) {
         return new C3AssignTypeExprImpl(node);
-      }
-      else if (type == ATTRDEF_DECL) {
+      } else if (type == ATTRDEF_DECL) {
         return new C3AttrdefDeclImpl(node);
-      }
-      else if (type == ATTRIBUTE) {
+      } else if (type == ATTRIBUTE) {
         return new C3AttributeImpl(node);
-      }
-      else if (type == ATTRIBUTES) {
+      } else if (type == ATTRIBUTES) {
         return new C3AttributesImpl(node);
-      }
-      else if (type == ATTRIBUTE_NAME) {
+      } else if (type == ATTRIBUTE_NAME) {
         return new C3AttributeNameImpl(node);
-      }
-      else if (type == ATTRIBUTE_OPERATOR_EXPR) {
+      } else if (type == ATTRIBUTE_OPERATOR_EXPR) {
         return new C3AttributeOperatorExprImpl(node);
-      }
-      else if (type == ATTRIBUTE_PARAM_LIST) {
+      } else if (type == ATTRIBUTE_PARAM_LIST) {
         return new C3AttributeParamListImpl(node);
-      }
-      else if (type == ATTRIBUTE_USER_NAME) {
+      } else if (type == ATTRIBUTE_USER_NAME) {
         return new C3AttributeUserNameImpl(node);
-      }
-      else if (type == ATTR_PARAM) {
+      } else if (type == ATTR_PARAM) {
         return new C3AttrParamImpl(node);
-      }
-      else if (type == BASE_TYPE) {
+      } else if (type == BASE_TYPE) {
         return new C3BaseTypeImpl(node);
-      }
-      else if (type == BINARY_EXPR) {
+      } else if (type == BINARY_EXPR) {
         return new C3BinaryExprImpl(node);
-      }
-      else if (type == BINARY_OP) {
+      } else if (type == BINARY_OP) {
         return new C3BinaryOpImpl(node);
-      }
-      else if (type == BITSTRUCT_BODY) {
+      } else if (type == BITSTRUCT_BODY) {
         return new C3BitstructBodyImpl(node);
-      }
-      else if (type == BITSTRUCT_DECLARATION) {
+      } else if (type == BITSTRUCT_DECLARATION) {
         return new C3BitstructDeclarationImpl(node);
-      }
-      else if (type == BITSTRUCT_DEF) {
+      } else if (type == BITSTRUCT_DEF) {
         return new C3BitstructDefImpl(node);
-      }
-      else if (type == BITSTRUCT_SIMPLE_DEF) {
+      } else if (type == BITSTRUCT_SIMPLE_DEF) {
         return new C3BitstructSimpleDefImpl(node);
-      }
-      else if (type == BREAK_STMT) {
+      } else if (type == BREAK_STMT) {
         return new C3BreakStmtImpl(node);
-      }
-      else if (type == BUILTIN_CONST_EXPR) {
+      } else if (type == BUILTIN_CONST_EXPR) {
         return new C3BuiltinConstExprImpl(node);
-      }
-      else if (type == BUILTIN_EXPR) {
+      } else if (type == BUILTIN_EXPR) {
         return new C3BuiltinExprImpl(node);
-      }
-      else if (type == BYTES_EXPR) {
+      } else if (type == BYTES_EXPR) {
         return new C3BytesExprImpl(node);
-      }
-      else if (type == CALL_ARG_LIST) {
+      } else if (type == CALL_ARG_LIST) {
         return new C3CallArgListImpl(node);
-      }
-      else if (type == CALL_EXPR) {
+      } else if (type == CALL_EXPR) {
         return new C3CallExprImpl(node);
-      }
-      else if (type == CALL_EXPR_TAIL) {
+      } else if (type == CALL_EXPR_TAIL) {
         return new C3CallExprTailImpl(node);
-      }
-      else if (type == CALL_INVOCATION) {
+      } else if (type == CALL_INVOCATION) {
         return new C3CallInvocationImpl(node);
-      }
-      else if (type == CASE_STMT) {
+      } else if (type == CASE_STMT) {
         return new C3CaseStmtImpl(node);
-      }
-      else if (type == CATCH_UNWRAP) {
+      } else if (type == CATCH_UNWRAP) {
         return new C3CatchUnwrapImpl(node);
-      }
-      else if (type == CATCH_UNWRAP_LIST) {
+      } else if (type == CATCH_UNWRAP_LIST) {
         return new C3CatchUnwrapListImpl(node);
-      }
-      else if (type == COMPOUND_INIT_EXPR) {
+      } else if (type == COMPOUND_INIT_EXPR) {
         return new C3CompoundInitExprImpl(node);
-      }
-      else if (type == COMPOUND_STATEMENT) {
+      } else if (type == COMPOUND_STATEMENT) {
         return new C3CompoundStatementImpl(node);
-      }
-      else if (type == COND) {
+      } else if (type == COND) {
         return new C3CondImpl(node);
-      }
-      else if (type == COND_REPEAT) {
+      } else if (type == COND_REPEAT) {
         return new C3CondRepeatImpl(node);
-      }
-      else if (type == CONST_DECLARATION_STMT) {
+      } else if (type == CONST_DECLARATION_STMT) {
         return new C3ConstDeclarationStmtImpl(node);
-      }
-      else if (type == CONTINUE_STMT) {
+      } else if (type == CONTINUE_STMT) {
         return new C3ContinueStmtImpl(node);
-      }
-      else if (type == CT_ANALYZE) {
+      } else if (type == CT_ANALYZE) {
         return new C3CtAnalyzeImpl(node);
-      }
-      else if (type == CT_ANALYZE_EXPR) {
+      } else if (type == CT_ANALYZE_EXPR) {
         return new C3CtAnalyzeExprImpl(node);
-      }
-      else if (type == CT_ARG) {
+      } else if (type == CT_ARG) {
         return new C3CtArgImpl(node);
-      }
-      else if (type == CT_ARG_EXPR) {
+      } else if (type == CT_ARG_EXPR) {
         return new C3CtArgExprImpl(node);
-      }
-      else if (type == CT_ASSERT_STMT) {
+      } else if (type == CT_ASSERT_STMT) {
         return new C3CtAssertStmtImpl(node);
-      }
-      else if (type == CT_CALL) {
+      } else if (type == CT_CALL) {
         return new C3CtCallImpl(node);
-      }
-      else if (type == CT_CALL_EXPR) {
+      } else if (type == CT_CALL_EXPR) {
         return new C3CtCallExprImpl(node);
-      }
-      else if (type == CT_CASE_STMT) {
+      } else if (type == CT_CASE_STMT) {
         return new C3CtCaseStmtImpl(node);
-      }
-      else if (type == CT_DEFINED_CHECK_EXPR) {
+      } else if (type == CT_DEFINED_CHECK_EXPR) {
         return new C3CtDefinedCheckExprImpl(node);
-      }
-      else if (type == CT_DEFINED_CHECK_EXPR_LIST) {
+      } else if (type == CT_DEFINED_CHECK_EXPR_LIST) {
         return new C3CtDefinedCheckExprListImpl(node);
-      }
-      else if (type == CT_DEFINED_EXPR) {
+      } else if (type == CT_DEFINED_EXPR) {
         return new C3CtDefinedExprImpl(node);
-      }
-      else if (type == CT_ECHO_STMT) {
+      } else if (type == CT_ECHO_STMT) {
         return new C3CtEchoStmtImpl(node);
-      }
-      else if (type == CT_ERROR_STMT) {
+      } else if (type == CT_ERROR_STMT) {
         return new C3CtErrorStmtImpl(node);
-      }
-      else if (type == CT_FEATURE_EXPR) {
+      } else if (type == CT_FEATURE_EXPR) {
         return new C3CtFeatureExprImpl(node);
-      }
-      else if (type == CT_FOREACH_STMT) {
+      } else if (type == CT_FOREACH_STMT) {
         return new C3CtForeachStmtImpl(node);
-      }
-      else if (type == CT_FOR_STMT) {
+      } else if (type == CT_FOR_STMT) {
         return new C3CtForStmtImpl(node);
-      }
-      else if (type == CT_IF_STMT) {
+      } else if (type == CT_IF_STMT) {
         return new C3CtIfStmtImpl(node);
-      }
-      else if (type == CT_INCLUDE_STMT) {
+      } else if (type == CT_INCLUDE_STMT) {
         return new C3CtIncludeStmtImpl(node);
-      }
-      else if (type == CT_SWITCH) {
+      } else if (type == CT_SWITCH) {
         return new C3CtSwitchImpl(node);
-      }
-      else if (type == CT_SWITCH_BODY) {
+      } else if (type == CT_SWITCH_BODY) {
         return new C3CtSwitchBodyImpl(node);
-      }
-      else if (type == CT_SWITCH_STMT) {
+      } else if (type == CT_SWITCH_STMT) {
         return new C3CtSwitchStmtImpl(node);
-      }
-      else if (type == DECL_OR_EXPR) {
+      } else if (type == DECL_OR_EXPR) {
         return new C3DeclOrExprImpl(node);
-      }
-      else if (type == DECL_STMT_AFTER_TYPE) {
+      } else if (type == DECL_STMT_AFTER_TYPE) {
         return new C3DeclStmtAfterTypeImpl(node);
-      }
-      else if (type == DEFAULT_MODULE_SECTION) {
+      } else if (type == DEFAULT_MODULE_SECTION) {
         return new C3DefaultModuleSectionImpl(node);
-      }
-      else if (type == DEFAULT_STMT) {
+      } else if (type == DEFAULT_STMT) {
         return new C3DefaultStmtImpl(node);
-      }
-      else if (type == DEFER_STMT) {
+      } else if (type == DEFER_STMT) {
         return new C3DeferStmtImpl(node);
-      }
-      else if (type == DEF_ATTR_VALUES) {
+      } else if (type == DEF_ATTR_VALUES) {
         return new C3DefAttrValuesImpl(node);
-      }
-      else if (type == DO_STMT) {
+      } else if (type == DO_STMT) {
         return new C3DoStmtImpl(node);
-      }
-      else if (type == ELSE_PART) {
+      } else if (type == ELSE_PART) {
         return new C3ElsePartImpl(node);
-      }
-      else if (type == ENUM_CONSTANT) {
+      } else if (type == ENUM_CONSTANT) {
         return new C3EnumConstantImpl(node);
-      }
-      else if (type == ENUM_DECLARATION) {
+      } else if (type == ENUM_DECLARATION) {
         return new C3EnumDeclarationImpl(node);
-      }
-      else if (type == ENUM_LIST) {
+      } else if (type == ENUM_LIST) {
         return new C3EnumListImpl(node);
-      }
-      else if (type == ENUM_PARAM_DECL) {
+      } else if (type == ENUM_PARAM_DECL) {
         return new C3EnumParamDeclImpl(node);
-      }
-      else if (type == ENUM_PARAM_LIST) {
+      } else if (type == ENUM_PARAM_LIST) {
         return new C3EnumParamListImpl(node);
-      }
-      else if (type == ENUM_SPEC) {
+      } else if (type == ENUM_SPEC) {
         return new C3EnumSpecImpl(node);
-      }
-      else if (type == EXPRESSION_LIST) {
+      } else if (type == EXPRESSION_LIST) {
         return new C3ExpressionListImpl(node);
-      }
-      else if (type == EXPR_STMT) {
+      } else if (type == EXPR_STMT) {
         return new C3ExprStmtImpl(node);
-      }
-      else if (type == EXPR_TERMINATOR) {
+      } else if (type == EXPR_TERMINATOR) {
         return new C3ExprTerminatorImpl(node);
-      }
-      else if (type == FAULTDEF_DECL) {
+      } else if (type == FAULTDEF_DECL) {
         return new C3FaultdefDeclImpl(node);
-      }
-      else if (type == FAULT_DEFINITION) {
+      } else if (type == FAULT_DEFINITION) {
         return new C3FaultDefinitionImpl(node);
-      }
-      else if (type == FLAT_PATH) {
+      } else if (type == FLAT_PATH) {
         return new C3FlatPathImpl(node);
-      }
-      else if (type == FLOAT_TYPE) {
+      } else if (type == FLOAT_TYPE) {
         return new C3FloatTypeImpl(node);
-      }
-      else if (type == FN_PARAMETER_LIST) {
+      } else if (type == FN_PARAMETER_LIST) {
         return new C3FnParameterListImpl(node);
-      }
-      else if (type == FOREACH_STMT) {
+      } else if (type == FOREACH_STMT) {
         return new C3ForeachStmtImpl(node);
-      }
-      else if (type == FOREACH_VAR) {
+      } else if (type == FOREACH_VAR) {
         return new C3ForeachVarImpl(node);
-      }
-      else if (type == FOREACH_VARS) {
+      } else if (type == FOREACH_VARS) {
         return new C3ForeachVarsImpl(node);
-      }
-      else if (type == FOR_COND) {
+      } else if (type == FOR_COND) {
         return new C3ForCondImpl(node);
-      }
-      else if (type == FOR_STMT) {
+      } else if (type == FOR_STMT) {
         return new C3ForStmtImpl(node);
-      }
-      else if (type == FUNC_DEF) {
+      } else if (type == FUNC_DEF) {
         return new C3FuncDefImpl(node);
-      }
-      else if (type == FUNC_DEFINITION) {
+      } else if (type == FUNC_DEFINITION) {
         return new C3FuncDefinitionImpl(node);
-      }
-      else if (type == FUNC_HEADER) {
+      } else if (type == FUNC_HEADER) {
         return new C3FuncHeaderImpl(node);
-      }
-      else if (type == FUNC_NAME) {
+      } else if (type == FUNC_NAME) {
         return new C3FuncNameImpl(node);
-      }
-      else if (type == FUNC_TYPEDEF) {
+      } else if (type == FUNC_TYPEDEF) {
         return new C3FuncTypedefImpl(node);
-      }
-      else if (type == GENERIC_PARAMETER) {
+      } else if (type == GENERIC_PARAMETER) {
         return new C3GenericParameterImpl(node);
-      }
-      else if (type == GENERIC_PARAMETERS) {
+      } else if (type == GENERIC_PARAMETERS) {
         return new C3GenericParametersImpl(node);
-      }
-      else if (type == GLOBAL_DECL) {
+      } else if (type == GLOBAL_DECL) {
         return new C3GlobalDeclImpl(node);
-      }
-      else if (type == GLOBAL_MULTI_DECLARATION) {
+      } else if (type == GLOBAL_MULTI_DECLARATION) {
         return new C3GlobalMultiDeclarationImpl(node);
-      }
-      else if (type == GLOBAL_SINGLE_DECLARATION) {
+      } else if (type == GLOBAL_SINGLE_DECLARATION) {
         return new C3GlobalSingleDeclarationImpl(node);
-      }
-      else if (type == GROUPED_EXPR) {
+      } else if (type == GROUPED_EXPR) {
         return new C3GroupedExprImpl(node);
-      }
-      else if (type == GROUPED_EXPRESSION) {
+      } else if (type == GROUPED_EXPRESSION) {
         return new C3GroupedExpressionImpl(node);
-      }
-      else if (type == IDENTIFIER_LIST) {
+      } else if (type == IDENTIFIER_LIST) {
         return new C3IdentifierListImpl(node);
-      }
-      else if (type == IF_STMT) {
+      } else if (type == IF_STMT) {
         return new C3IfStmtImpl(node);
-      }
-      else if (type == IMPLIES_BODY) {
+      } else if (type == IMPLIES_BODY) {
         return new C3ImpliesBodyImpl(node);
-      }
-      else if (type == IMPORT_DECL) {
+      } else if (type == IMPORT_DECL) {
         return new C3ImportDeclImpl(node);
-      }
-      else if (type == IMPORT_PATH) {
+      } else if (type == IMPORT_PATH) {
         return new C3ImportPathImpl(node);
-      }
-      else if (type == IMPORT_PATHS) {
+      } else if (type == IMPORT_PATHS) {
         return new C3ImportPathsImpl(node);
-      }
-      else if (type == INITIALIZER_LIST) {
+      } else if (type == INITIALIZER_LIST) {
         return new C3InitializerListImpl(node);
-      }
-      else if (type == INIT_LIST_EXPR) {
+      } else if (type == INIT_LIST_EXPR) {
         return new C3InitListExprImpl(node);
-      }
-      else if (type == INTEGER_TYPE) {
+      } else if (type == INTEGER_TYPE) {
         return new C3IntegerTypeImpl(node);
-      }
-      else if (type == INTERFACE_BODY) {
+      } else if (type == INTERFACE_BODY) {
         return new C3InterfaceBodyImpl(node);
-      }
-      else if (type == INTERFACE_DEFINITION) {
+      } else if (type == INTERFACE_DEFINITION) {
         return new C3InterfaceDefinitionImpl(node);
-      }
-      else if (type == INTERFACE_IMPL) {
+      } else if (type == INTERFACE_IMPL) {
         return new C3InterfaceImplImpl(node);
-      }
-      else if (type == KEYWORD_EXPR) {
+      } else if (type == KEYWORD_EXPR) {
         return new C3KeywordExprImpl(node);
-      }
-      else if (type == LABEL) {
+      } else if (type == LABEL) {
         return new C3LabelImpl(node);
-      }
-      else if (type == LAMBDA_DECL) {
+      } else if (type == LAMBDA_DECL) {
         return new C3LambdaDeclImpl(node);
-      }
-      else if (type == LAMBDA_DECL_EXPR) {
+      } else if (type == LAMBDA_DECL_EXPR) {
         return new C3LambdaDeclExprImpl(node);
-      }
-      else if (type == LAMBDA_DECL_SHORT_EXPR) {
+      } else if (type == LAMBDA_DECL_SHORT_EXPR) {
         return new C3LambdaDeclShortExprImpl(node);
-      }
-      else if (type == LITERAL_EXPR) {
+      } else if (type == LITERAL_EXPR) {
         return new C3LiteralExprImpl(node);
-      }
-      else if (type == LOCAL_DECLARATION_STMT) {
+      } else if (type == LOCAL_DECLARATION_STMT) {
         return new C3LocalDeclarationStmtImpl(node);
-      }
-      else if (type == LOCAL_DECL_AFTER_TYPE) {
+      } else if (type == LOCAL_DECL_AFTER_TYPE) {
         return new C3LocalDeclAfterTypeImpl(node);
-      }
-      else if (type == LOCAL_DECL_STORAGE) {
+      } else if (type == LOCAL_DECL_STORAGE) {
         return new C3LocalDeclStorageImpl(node);
-      }
-      else if (type == LOCAL_IDENT_EXPR) {
+      } else if (type == LOCAL_IDENT_EXPR) {
         return new C3LocalIdentExprImpl(node);
-      }
-      else if (type == MACRO_DEFINITION) {
+      } else if (type == MACRO_DEFINITION) {
         return new C3MacroDefinitionImpl(node);
-      }
-      else if (type == MACRO_FUNC_BODY) {
+      } else if (type == MACRO_FUNC_BODY) {
         return new C3MacroFuncBodyImpl(node);
-      }
-      else if (type == MACRO_HEADER) {
+      } else if (type == MACRO_HEADER) {
         return new C3MacroHeaderImpl(node);
-      }
-      else if (type == MACRO_IMPLIES_BODY) {
+      } else if (type == MACRO_IMPLIES_BODY) {
         return new C3MacroImpliesBodyImpl(node);
-      }
-      else if (type == MACRO_NAME) {
+      } else if (type == MACRO_NAME) {
         return new C3MacroNameImpl(node);
-      }
-      else if (type == MACRO_PARAMS) {
+      } else if (type == MACRO_PARAMS) {
         return new C3MacroParamsImpl(node);
-      }
-      else if (type == MODULE) {
+      } else if (type == MODULE) {
         return new C3ModuleImpl(node);
-      }
-      else if (type == MODULE_PARAM) {
+      } else if (type == MODULE_PARAM) {
         return new C3ModuleParamImpl(node);
-      }
-      else if (type == MODULE_PARAMS) {
+      } else if (type == MODULE_PARAMS) {
         return new C3ModuleParamsImpl(node);
-      }
-      else if (type == MODULE_PATH) {
+      } else if (type == MODULE_PATH) {
         return new C3ModulePathImpl(node);
-      }
-      else if (type == MODULE_SECTION) {
+      } else if (type == MODULE_SECTION) {
         return new C3ModuleSectionImpl(node);
-      }
-      else if (type == MULTI_DECLARATION) {
+      } else if (type == MULTI_DECLARATION) {
         return new C3MultiDeclarationImpl(node);
-      }
-      else if (type == NAMED_IDENT) {
+      } else if (type == NAMED_IDENT) {
         return new C3NamedIdentImpl(node);
-      }
-      else if (type == NEXTCASE_STMT) {
+      } else if (type == NEXTCASE_STMT) {
         return new C3NextcaseStmtImpl(node);
-      }
-      else if (type == OPTIONAL_EXPR) {
+      } else if (type == OPTIONAL_EXPR) {
         return new C3OptionalExprImpl(node);
-      }
-      else if (type == OPTIONAL_TYPE) {
+      } else if (type == OPTIONAL_TYPE) {
         return new C3OptionalTypeImpl(node);
-      }
-      else if (type == PARAMETER) {
+      } else if (type == PARAMETER) {
         return new C3ParameterImpl(node);
-      }
-      else if (type == PARAMETER_LIST) {
+      } else if (type == PARAMETER_LIST) {
         return new C3ParameterListImpl(node);
-      }
-      else if (type == PARAM_DECL) {
+      } else if (type == PARAM_DECL) {
         return new C3ParamDeclImpl(node);
-      }
-      else if (type == PARAM_PATH) {
+      } else if (type == PARAM_PATH) {
         return new C3ParamPathImpl(node);
-      }
-      else if (type == PARAM_PATH_ELEMENT) {
+      } else if (type == PARAM_PATH_ELEMENT) {
         return new C3ParamPathElementImpl(node);
-      }
-      else if (type == PAREN_COND) {
+      } else if (type == PAREN_COND) {
         return new C3ParenCondImpl(node);
-      }
-      else if (type == PATH) {
+      } else if (type == PATH) {
         return new C3PathImpl(node);
-      }
-      else if (type == PATH_AT_IDENT) {
+      } else if (type == PATH_AT_IDENT) {
         return new C3PathAtIdentImpl(node);
-      }
-      else if (type == PATH_AT_IDENT_EXPR) {
+      } else if (type == PATH_AT_IDENT_EXPR) {
         return new C3PathAtIdentExprImpl(node);
-      }
-      else if (type == PATH_CONST) {
+      } else if (type == PATH_CONST) {
         return new C3PathConstImpl(node);
-      }
-      else if (type == PATH_CONST_EXPR) {
+      } else if (type == PATH_CONST_EXPR) {
         return new C3PathConstExprImpl(node);
-      }
-      else if (type == PATH_IDENT) {
+      } else if (type == PATH_IDENT) {
         return new C3PathIdentImpl(node);
-      }
-      else if (type == PATH_IDENT_EXPR) {
+      } else if (type == PATH_IDENT_EXPR) {
         return new C3PathIdentExprImpl(node);
-      }
-      else if (type == RANGE_EXP) {
+      } else if (type == RANGE_EXP) {
         return new C3RangeExpImpl(node);
-      }
-      else if (type == RANGE_LOC) {
+      } else if (type == RANGE_LOC) {
         return new C3RangeLocImpl(node);
-      }
-      else if (type == RETURN_STMT) {
+      } else if (type == RETURN_STMT) {
         return new C3ReturnStmtImpl(node);
-      }
-      else if (type == STATEMENT) {
+      } else if (type == STATEMENT) {
         return new C3StatementImpl(node);
-      }
-      else if (type == STATEMENT_LIST) {
+      } else if (type == STATEMENT_LIST) {
         return new C3StatementListImpl(node);
-      }
-      else if (type == STRING_EXPR) {
+      } else if (type == STRING_EXPR) {
         return new C3StringExprImpl(node);
-      }
-      else if (type == STRUCT_BODY) {
+      } else if (type == STRUCT_BODY) {
         return new C3StructBodyImpl(node);
-      }
-      else if (type == STRUCT_DECLARATION) {
+      } else if (type == STRUCT_DECLARATION) {
         return new C3StructDeclarationImpl(node);
-      }
-      else if (type == STRUCT_MEMBER_DECLARATION) {
+      } else if (type == STRUCT_MEMBER_DECLARATION) {
         return new C3StructMemberDeclarationImpl(node);
-      }
-      else if (type == SWITCH_BODY) {
+      } else if (type == SWITCH_BODY) {
         return new C3SwitchBodyImpl(node);
-      }
-      else if (type == SWITCH_STMT) {
+      } else if (type == SWITCH_STMT) {
         return new C3SwitchStmtImpl(node);
-      }
-      else if (type == TERNARY_EXPR) {
+      } else if (type == TERNARY_EXPR) {
         return new C3TernaryExprImpl(node);
-      }
-      else if (type == TOP_LEVEL) {
+      } else if (type == TOP_LEVEL) {
         return new C3TopLevelImpl(node);
-      }
-      else if (type == TRAILING_BLOCK_PARAM) {
+      } else if (type == TRAILING_BLOCK_PARAM) {
         return new C3TrailingBlockParamImpl(node);
-      }
-      else if (type == TRY_UNWRAP) {
+      } else if (type == TRY_UNWRAP) {
         return new C3TryUnwrapImpl(node);
-      }
-      else if (type == TRY_UNWRAP_CHAIN) {
+      } else if (type == TRY_UNWRAP_CHAIN) {
         return new C3TryUnwrapChainImpl(node);
-      }
-      else if (type == TYPE) {
+      } else if (type == TYPE) {
         return new C3TypeImpl(node);
-      }
-      else if (type == TYPEDEF_DECL) {
+      } else if (type == TYPEDEF_DECL) {
         return new C3TypedefDeclImpl(node);
-      }
-      else if (type == TYPEDEF_TYPE) {
+      } else if (type == TYPEDEF_TYPE) {
         return new C3TypedefTypeImpl(node);
-      }
-      else if (type == TYPE_ACCESS_EXPR) {
+      } else if (type == TYPE_ACCESS_EXPR) {
         return new C3TypeAccessExprImpl(node);
-      }
-      else if (type == TYPE_DECL) {
+      } else if (type == TYPE_DECL) {
         return new C3TypeDeclImpl(node);
-      }
-      else if (type == TYPE_NAME) {
+      } else if (type == TYPE_NAME) {
         return new C3TypeNameImpl(node);
-      }
-      else if (type == TYPE_SUFFIX) {
+      } else if (type == TYPE_SUFFIX) {
         return new C3TypeSuffixImpl(node);
-      }
-      else if (type == UNARY_EXPR) {
+      } else if (type == UNARY_EXPR) {
         return new C3UnaryExprImpl(node);
-      }
-      else if (type == UNARY_OP) {
+      } else if (type == UNARY_OP) {
         return new C3UnaryOpImpl(node);
-      }
-      else if (type == VAR_DECL) {
+      } else if (type == VAR_DECL) {
         return new C3VarDeclImpl(node);
-      }
-      else if (type == VAR_STMT) {
+      } else if (type == VAR_STMT) {
         return new C3VarStmtImpl(node);
-      }
-      else if (type == WHILE_STMT) {
+      } else if (type == WHILE_STMT) {
         return new C3WhileStmtImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);

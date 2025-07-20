@@ -90,19 +90,28 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // type IDENTIFIER (EQUALS expr)? SEMICOLON
+  // (call | type) IDENTIFIER (EQUALS expr)? SEMICOLON
   public static boolean assignment(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "assignment")) return false;
     if (!nextTokenIs(b, IDENTIFIER)) return false;
     boolean r, p;
     Marker m = enter_section_(b, l, _NONE_, ASSIGNMENT, null);
-    r = type(b, l + 1);
+    r = assignment_0(b, l + 1);
     r = r && consumeToken(b, IDENTIFIER);
     r = r && assignment_2(b, l + 1);
     p = r; // pin = 3
     r = r && consumeToken(b, SEMICOLON);
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // call | type
+  private static boolean assignment_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "assignment_0")) return false;
+    boolean r;
+    r = call(b, l + 1);
+    if (!r) r = type(b, l + 1);
+    return r;
   }
 
   // (EQUALS expr)?
@@ -894,23 +903,23 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // LINE_COMMENT | return | (call SEMICOLON) | assignment | comp_if
+  // LINE_COMMENT | return | assignment | (call SEMICOLON) | comp_if
   public static boolean fn_statement(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "fn_statement")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, FN_STATEMENT, "<fn statement>");
     r = consumeToken(b, LINE_COMMENT);
     if (!r) r = return_$(b, l + 1);
-    if (!r) r = fn_statement_2(b, l + 1);
     if (!r) r = assignment(b, l + 1);
+    if (!r) r = fn_statement_3(b, l + 1);
     if (!r) r = comp_if(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   // call SEMICOLON
-  private static boolean fn_statement_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "fn_statement_2")) return false;
+  private static boolean fn_statement_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "fn_statement_3")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = call(b, l + 1);
@@ -1593,7 +1602,7 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // cast? (INTEGER | DOUBLE | FLOAT | STRING | CHAR | init | call | field | attribute | (LPAREN expr RPAREN))
+  // cast? (INTEGER | DOUBLE | FLOAT | STRING | CHAR | AMPERSAND? init | AMPERSAND? call | AMPERSAND? field | attribute | (LPAREN expr RPAREN))
   public static boolean term(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "term")) return false;
     boolean r;
@@ -1611,7 +1620,7 @@ public class C3Parser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // INTEGER | DOUBLE | FLOAT | STRING | CHAR | init | call | field | attribute | (LPAREN expr RPAREN)
+  // INTEGER | DOUBLE | FLOAT | STRING | CHAR | AMPERSAND? init | AMPERSAND? call | AMPERSAND? field | attribute | (LPAREN expr RPAREN)
   private static boolean term_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "term_1")) return false;
     boolean r;
@@ -1621,13 +1630,67 @@ public class C3Parser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, FLOAT);
     if (!r) r = consumeToken(b, STRING);
     if (!r) r = consumeToken(b, CHAR);
-    if (!r) r = init(b, l + 1);
-    if (!r) r = call(b, l + 1);
-    if (!r) r = field(b, l + 1);
+    if (!r) r = term_1_5(b, l + 1);
+    if (!r) r = term_1_6(b, l + 1);
+    if (!r) r = term_1_7(b, l + 1);
     if (!r) r = attribute(b, l + 1);
     if (!r) r = term_1_9(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // AMPERSAND? init
+  private static boolean term_1_5(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_5")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = term_1_5_0(b, l + 1);
+    r = r && init(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // AMPERSAND?
+  private static boolean term_1_5_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_5_0")) return false;
+    consumeToken(b, AMPERSAND);
+    return true;
+  }
+
+  // AMPERSAND? call
+  private static boolean term_1_6(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_6")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = term_1_6_0(b, l + 1);
+    r = r && call(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // AMPERSAND?
+  private static boolean term_1_6_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_6_0")) return false;
+    consumeToken(b, AMPERSAND);
+    return true;
+  }
+
+  // AMPERSAND? field
+  private static boolean term_1_7(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_7")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = term_1_7_0(b, l + 1);
+    r = r && field(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // AMPERSAND?
+  private static boolean term_1_7_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "term_1_7_0")) return false;
+    consumeToken(b, AMPERSAND);
+    return true;
   }
 
   // LPAREN expr RPAREN
@@ -1643,7 +1706,7 @@ public class C3Parser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // IDENTIFIER (LBRACKET INTEGER? RBRACKET)? FAULT?
+  // IDENTIFIER ASTERISK? (LBRACKET INTEGER? RBRACKET)? ASTERISK? FAULT?
   public static boolean type(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "type")) return false;
     if (!nextTokenIs(b, IDENTIFIER)) return false;
@@ -1652,39 +1715,55 @@ public class C3Parser implements PsiParser, LightPsiParser {
     r = consumeToken(b, IDENTIFIER);
     r = r && type_1(b, l + 1);
     r = r && type_2(b, l + 1);
+    r = r && type_3(b, l + 1);
+    r = r && type_4(b, l + 1);
     exit_section_(b, m, TYPE, r);
     return r;
   }
 
-  // (LBRACKET INTEGER? RBRACKET)?
+  // ASTERISK?
   private static boolean type_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "type_1")) return false;
-    type_1_0(b, l + 1);
+    consumeToken(b, ASTERISK);
+    return true;
+  }
+
+  // (LBRACKET INTEGER? RBRACKET)?
+  private static boolean type_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "type_2")) return false;
+    type_2_0(b, l + 1);
     return true;
   }
 
   // LBRACKET INTEGER? RBRACKET
-  private static boolean type_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "type_1_0")) return false;
+  private static boolean type_2_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "type_2_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, LBRACKET);
-    r = r && type_1_0_1(b, l + 1);
+    r = r && type_2_0_1(b, l + 1);
     r = r && consumeToken(b, RBRACKET);
     exit_section_(b, m, null, r);
     return r;
   }
 
   // INTEGER?
-  private static boolean type_1_0_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "type_1_0_1")) return false;
+  private static boolean type_2_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "type_2_0_1")) return false;
     consumeToken(b, INTEGER);
     return true;
   }
 
+  // ASTERISK?
+  private static boolean type_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "type_3")) return false;
+    consumeToken(b, ASTERISK);
+    return true;
+  }
+
   // FAULT?
-  private static boolean type_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "type_2")) return false;
+  private static boolean type_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "type_4")) return false;
     consumeToken(b, FAULT);
     return true;
   }

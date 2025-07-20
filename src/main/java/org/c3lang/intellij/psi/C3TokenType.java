@@ -9,16 +9,13 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Christoffer Lerno
  */
-public class C3TokenType extends IElementType
-{
-    public C3TokenType(@NotNull String debugName)
-    {
-        super(debugName, C3Language.INSTANCE);
-    }
+public class C3TokenType extends IElementType {
+  public C3TokenType(@NotNull String debugName) {
+    super(debugName, C3Language.INSTANCE);
+  }
 
-    @Override
-    public String toString()
-    {
-        return "C3TokenType." + super.toString();
-    }
+  @Override
+  public String toString() {
+    return "C3TokenType." + super.toString();
+  }
 }

@@ -14,25 +14,23 @@ import org.jetbrains.annotations.Nullable;
  *
  * @author Christoffer Lerno
  */
-public class C3BuildRunConfigurationFactory extends ConfigurationFactory
-{
-    public C3BuildRunConfigurationFactory(@NotNull ConfigurationType type)
-    {
-        super(type);
-    }
+public class C3BuildRunConfigurationFactory extends ConfigurationFactory {
+  public C3BuildRunConfigurationFactory(@NotNull ConfigurationType type) {
+    super(type);
+  }
 
-    @Override public @NotNull @NonNls String getId()
-    {
-        return C3BuildRunConfigurationType.ID;
-    }
+  @Override
+  public @NotNull @NonNls String getId() {
+    return C3BuildRunConfigurationType.ID;
+  }
 
-    @Override public @NotNull RunConfiguration createTemplateConfiguration(@NotNull Project project)
-    {
-        return new C3BuildRunConfiguration(project, this, "C3 Run");
-    }
+  @Override
+  public @NotNull RunConfiguration createTemplateConfiguration(@NotNull Project project) {
+    return new C3BuildRunConfiguration(project, this, "C3 Run");
+  }
 
-    @Override public @Nullable Class<? extends BaseState> getOptionsClass()
-    {
-        return C3BuildRunConfigurationOptions.class;
-    }
+  @Override
+  public @Nullable Class<? extends BaseState> getOptionsClass() {
+    return C3BuildRunConfigurationOptions.class;
+  }
 }

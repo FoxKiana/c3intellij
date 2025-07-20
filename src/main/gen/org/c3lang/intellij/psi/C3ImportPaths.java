@@ -3,11 +3,9 @@ package org.c3lang.intellij.psi;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
-import com.intellij.psi.PsiElement;
 
 public interface C3ImportPaths extends C3PsiElement {
 
   @NotNull
   List<C3ImportPath> getImportPathList();
-
 }
